@@ -1,1 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Manrope", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --color-ink: #0c1f17;
+  --color-mist: #eef3f0;
+  --color-paper: #f7faf8;
+  --color-accent: #2dd4a8;
+  --color-accent-deep: #0f766e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.prose-global {
+  color: rgb(12 31 23 / 0.82);
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.prose-global p + p {
+  margin-top: 1rem;
+}
+
+.prose-global h2,
+.prose-global h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-global a {
+  color: var(--color-accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-global ul {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.img-cover {
+  background-size: cover;
+  background-position: center;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes icon-swap {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+}
+
+.animate-slide-in {
+  animation: slide-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.animate-menu-in {
+  animation: menu-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-icon-swap {
+  animation: icon-swap 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 10px 28px rgb(45 212 168 / 0.28);
+}
+
+.btn-ink {
+  background: var(--color-ink);
+  color: var(--color-accent);
+}
+
+.btn-ink:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 10px 28px rgb(12 31 23 / 0.22);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: rgb(12 31 23 / 0.2);
+  color: var(--color-ink);
+}
+
+.btn-outline:hover {
+  background: rgb(12 31 23 / 0.04);
+  border-color: rgb(12 31 23 / 0.35);
+}
+
+.btn-ghost {
+  background: rgb(255 255 255 / 0.08);
+  border-color: rgb(255 255 255 / 0.3);
+  color: #fff;
+}
+
+.btn-ghost:hover {
+  background: rgb(255 255 255 / 0.16);
+}
+
+.btn-block-sm {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .btn-block-sm {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn:hover,
+  .btn:active,
+  .animate-fade-up,
+  .animate-fade-up-delay,
+  .animate-fade-up-delay-2,
+  .animate-slide-in,
+  .animate-menu-in,
+  .animate-icon-swap {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

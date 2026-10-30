@@ -1,16 +1,37 @@
-# React + Vite
+# PR2 Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React + Tailwind + Sanity — sister site to PR1 with a **services-first** structure and a wider international offer.
 
-Currently, two official plugins are available:
+**PR2** — *Cross-border visibility for growing brands*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Sanity site value: `pr2` · Shared studio: https://pr-websites.sanity.studio/
 
-## React Compiler
+```bash
+npm install && npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Runs on **http://localhost:5174**
 
-## Expanding the Oxlint configuration
+## How PR2 differs from PR1
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+| | PR1 (`PR`) | PR2 (`PR2`) |
+|---|---|---|
+| Focus | Platform / features-led | Services-led, international |
+| Home layout | Full-bleed dark hero | Split hero + markets strip |
+| Nav | Dark over hero | Sticky light header |
+| Palette | Ink + lime | Forest + mint |
+| Services | Core PR set | Broader (market entry, events, monitoring, …) |
+
+## Deploy on Vercel
+
+1. Import this repo in [Vercel](https://vercel.com/new) (Framework: Vite).
+2. Environment variables:
+
+| Name | Value |
+|------|--------|
+| `VITE_SANITY_PROJECT_ID` | `kyqpdwqu` |
+| `VITE_SANITY_DATASET` | `production` |
+| `VITE_SANITY_API_VERSION` | `2025-01-01` |
+| `VITE_SANITY_WRITE_TOKEN` | *(optional)* |
+
+3. `vercel.json` rewrites routes for React Router.
