@@ -13,6 +13,7 @@ import {
   fetchBlogPosts,
   fetchServices,
   withFallback,
+  defaultsPlusCms,
 } from '../api/sanity'
 import {
   fallbackHomepage,
@@ -29,17 +30,18 @@ export default function Home() {
 
   useEffect(() => {
     ;(async () => {
-      const [h, a, p, s] = await Promise.all([
+      const [h, articles, posts, services] = await Promise.all([
         withFallback(fetchHomepage, fallbackHomepage),
-        withFallback(() => fetchBusinessArticles({ featured: true }), fallbackArticles.filter((x) => x.featured)),
-        withFallback(() => fetchBlogPosts({ featured: true }), fallbackPosts.slice(0, 3)),
+        withFallback(fetchBusinessArticles, fallbackArticles),
+        withFallback(fetchBlogPosts, fallbackPosts),
         withFallback(fetchServices, fallbackServices),
       ])
-      setHome({ ...fallbackHomepage, ...h })
-      setArticles(Array.isArray(a) && a.length ? a : fallbackArticles.filter((x) => x.featured))
-      setPosts(Array.isArray(p) && p.length ? p.slice(0, 3) : fallbackPosts.slice(0, 3))
-      const list = Array.isArray(s) && s.length ? s : fallbackServices
-      setServices(list.slice(0, 6))
+
+      // Defaults first; Sanity-only items always kept (not cut off by slice)
+      setHome({ ...fallbackHomepage, ...(h && typeof h === 'object' ? h : {}) })
+      setArticles(defaultsPlusCms(articles, fallbackArticles, 6))
+      setPosts(defaultsPlusCms(posts, fallbackPosts, 3))
+      setServices(defaultsPlusCms(services, fallbackServices, 6))
     })()
   }, [])
 

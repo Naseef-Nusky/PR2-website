@@ -19,12 +19,10 @@ export default function Blog() {
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-ink)]/50">Newsroom</p>
           <h1 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl">Insights & news</h1>
           <p className="mt-4 max-w-2xl text-[var(--color-ink)]/70">
-            Market-entry ideas, interviews and sponsored stories — replace sample posts anytime from Sanity Studio.
+            Market-entry ideas, interviews and sponsored stories.
           </p>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <BlogCard key={post.id || post.slug} post={post} />
-            ))}
+            {posts.map((post) => <BlogCard key={post.id || post.slug} post={post} />)}
           </div>
         </div>
       </section>
