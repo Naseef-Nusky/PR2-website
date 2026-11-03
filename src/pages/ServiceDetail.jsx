@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Seo from '../components/Seo'
 import RichText from '../components/RichText'
+import DetailHero from '../components/DetailHero'
+import DetailShell from '../components/DetailShell'
 import { fetchService, withFallback } from '../api/sanity'
 import { fallbackServices } from '../data/fallback'
 
@@ -33,7 +35,7 @@ export default function ServiceDetail() {
 
   if (loading) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-20 text-center text-[var(--color-ink)]/60">
+      <div className="mx-auto max-w-6xl px-4 py-20 text-center text-[var(--color-ink)]/60">
         <p>Loading…</p>
       </div>
     )
@@ -41,7 +43,7 @@ export default function ServiceDetail() {
 
   if (!service) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-20 text-center">
+      <div className="mx-auto max-w-6xl px-4 py-20 text-center">
         <p>Service not found.</p>
         <Link to="/services" className="mt-4 inline-block underline">
           All services
@@ -56,27 +58,16 @@ export default function ServiceDetail() {
   return (
     <>
       <Seo title={service.seoTitle || service.title} description={service.seoDescription || excerpt} />
-      <article className="bg-[var(--color-mist)]">
-        {image && (
-          <div className="relative h-[42vh] min-h-[260px] w-full overflow-hidden md:h-[52vh]">
-            <img src={image} alt="" className="h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/70 to-transparent" />
-          </div>
-        )}
-        <div className="mx-auto max-w-3xl px-4 py-14 md:px-8 md:py-20">
-          <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-ink)]/50">Service</p>
-          <h1 className="mt-4 font-display text-4xl leading-tight md:text-5xl">{service.title}</h1>
-          <p className="mt-5 text-lg text-[var(--color-ink)]/75">{excerpt}</p>
-          <RichText html={service.content} className="mt-10" />
-          <div className="mt-12 flex flex-col gap-3 border-t border-[var(--color-ink)]/10 pt-8 sm:flex-row">
-            <Link to="/contact" className="btn btn-ink btn-block-sm">
-              Enquire about this service
-            </Link>
-            <Link to="/services" className="btn btn-outline btn-block-sm">
-              All services
-            </Link>
-          </div>
-        </div>
+      <article className="bg-[var(--color-paper)] pb-16">
+        <DetailHero image={image} label="Service" title={service.title} excerpt={excerpt} />
+        <DetailShell
+          primaryTo="/contact"
+          primaryLabel="Enquire about this service"
+          secondaryTo="/services"
+          secondaryLabel="All services"
+        >
+          <RichText html={service.content} />
+        </DetailShell>
       </article>
     </>
   )

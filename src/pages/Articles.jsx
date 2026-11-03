@@ -22,7 +22,7 @@ export default function Articles() {
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-ink)]/50">Business promotion</p>
           <h1 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl">Company features</h1>
           <p className="mt-4 max-w-2xl text-[var(--color-ink)]/70">
-            Editorial profiles for businesses expanding across borders — each with a permanent, shareable address.
+            Editorial profiles for businesses expanding across borders, each with a permanent, shareable address.
           </p>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {articles.map((article) => (

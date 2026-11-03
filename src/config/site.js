@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: 'Cross-border visibility for growing brands',
   headline: 'Promote Your Business Worldwide',
   description:
-    'PR2 helps international and UK businesses promote services, advertise products, publish company news and win customers across borders — with a broader service suite for market entry and trade.',
+    'PR2 helps international and UK businesses promote services, advertise products, publish company news and win customers across borders, with a broader service suite for market entry and trade.',
   url: 'https://pr2.example',
   contactEmail: 'hello@pr2.example',
   contactPhone: '+44 161 496 0202',
@@ -14,6 +14,15 @@ export const siteConfig = {
     x: 'https://x.com/',
     facebook: 'https://www.facebook.com/',
     instagram: 'https://www.instagram.com/',
+  },
+  blog: {
+    navLabel: 'Newsroom',
+    sectionLabel: 'PR2 Newsroom',
+    title: 'Insights & news',
+    homeTitle: 'Insights & company news',
+    description: 'International business news, interviews and insights from PR2.',
+    backLabel: 'Back to PR2 Newsroom',
+    browseLabel: 'Browse PR2 Newsroom',
   },
   pillars: [
     {

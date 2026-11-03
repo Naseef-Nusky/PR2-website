@@ -63,7 +63,7 @@ export default function SocialIcons({ links, className = '' }) {
             target="_blank"
             rel="noreferrer"
             aria-label={LABELS[key] || key}
-            className="inline-flex h-11 w-11 items-center justify-center border border-white/25 text-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-ink)] active:scale-95"
+            className="inline-flex h-11 w-11 items-center justify-center border border-[var(--color-ink)]/20 text-[var(--color-ink)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--color-copper)] hover:bg-[var(--color-copper)] hover:text-white active:scale-95"
           >
             <Icon />
           </a>

@@ -49,7 +49,7 @@ export default function Contact() {
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent-deep)]">Contact</p>
           <h1 className="mt-3 font-display text-3xl text-[var(--color-ink)] sm:text-4xl md:text-5xl">International enquiry</h1>
           <p className="mt-4 text-[var(--color-ink)]/70">
-            Share your markets, company background and the services you need — from features to market-entry programmes. Submissions are reviewed before publication.
+            Share your markets, company background and the services you need, from features to market-entry programmes. Submissions are reviewed before publication.
           </p>
           <div className="mt-8 space-y-2 break-words text-sm text-[var(--color-ink)]/80">
             <p><a className="underline underline-offset-2" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>

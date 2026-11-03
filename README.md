@@ -1,8 +1,8 @@
 # PR2 Website
 
-React + Tailwind + Sanity — sister site to PR1 with a **services-first** structure and a wider international offer.
+React + Tailwind + Sanity, sister site to PR1 with a **services-first** structure and a wider international offer.
 
-**PR2** — *Cross-border visibility for growing brands*
+**PR2**: *Cross-border visibility for growing brands*
 
 Sanity site value: `pr2` · Shared studio: https://pr-websites.sanity.studio/
 

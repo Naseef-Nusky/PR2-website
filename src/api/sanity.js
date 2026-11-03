@@ -266,8 +266,9 @@ export async function withFallback(loader, fallback) {
       }
       const defaults = fallback.map((item) => bySlug.get(item.slug)).filter(Boolean)
       const fallbackSlugs = new Set(fallback.map((item) => item?.slug).filter(Boolean))
+      // Sanity uploads first (so new CMS content is obvious), then remaining demos
       const sanityOnly = data.filter((item) => item?.slug && !fallbackSlugs.has(item.slug))
-      return [...defaults, ...sanityOnly]
+      return [...sanityOnly, ...defaults]
     }
     if (data == null) return fallback
     if (typeof data === 'object' && !data.title && !data.slug && !data.heroTitle) return fallback
@@ -278,11 +279,11 @@ export async function withFallback(loader, fallback) {
   }
 }
 
-/** Keep N default items, then always append Sanity-only items (so CMS posts are not sliced away). */
+/** Sanity-only items first, then up to N demo items (CMS uploads stay visible on home). */
 export function defaultsPlusCms(items, fallbackItems, defaultLimit) {
   const list = Array.isArray(items) ? items : []
   const fallbackSlugs = new Set((fallbackItems || []).map((x) => x?.slug).filter(Boolean))
   const defaults = list.filter((x) => fallbackSlugs.has(x.slug)).slice(0, defaultLimit)
   const sanityOnly = list.filter((x) => x?.slug && !fallbackSlugs.has(x.slug))
-  return [...defaults, ...sanityOnly]
+  return [...sanityOnly, ...defaults]
 }

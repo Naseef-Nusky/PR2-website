@@ -7,9 +7,9 @@ export default function ServiceCard({ service, index }) {
   return (
     <Link
       to={`/services/${service.slug}`}
-      className="group grid overflow-hidden border border-[var(--color-ink)]/10 bg-white transition duration-300 hover:-translate-y-1 hover:border-[var(--color-accent-deep)]/40 sm:grid-cols-[7.5rem_1fr]"
+      className="group grid overflow-hidden rounded-2xl border border-[var(--color-ink)]/10 bg-white transition duration-300 hover:-translate-y-1 hover:border-[var(--color-accent-deep)]/40 sm:grid-cols-[7.5rem_1fr]"
     >
-      <div className="relative min-h-[140px] overflow-hidden bg-[var(--color-mist)] sm:min-h-full">
+      <div className="relative min-h-[140px] overflow-hidden rounded-t-2xl bg-[var(--color-mist)] sm:min-h-full sm:rounded-l-2xl sm:rounded-tr-none">
         {image ? (
           <img
             src={image}

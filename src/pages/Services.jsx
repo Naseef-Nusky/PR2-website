@@ -24,7 +24,7 @@ export default function Services() {
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent-deep)]">Catalogue</p>
           <h1 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl">International promotion services</h1>
           <p className="mt-4 max-w-2xl text-[var(--color-ink)]/70">
-            A broader suite than a standard features platform — including market entry, localisation, trade events and media monitoring.
+            A broader suite than a standard features platform, including market entry, localisation, trade events and media monitoring.
           </p>
           <div className="mt-12 grid gap-4 lg:grid-cols-2">
             {services.map((service, i) => (

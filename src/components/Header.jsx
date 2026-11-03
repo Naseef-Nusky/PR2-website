@@ -5,7 +5,7 @@ import { siteConfig } from '../config/site'
 const links = [
   { to: '/services', label: 'Services' },
   { to: '/businesses', label: 'Features' },
-  { to: '/blog', label: 'Newsroom' },
+  { to: '/blog', label: siteConfig.blog.navLabel },
   { to: '/contact', label: 'Enquire' },
 ]
 
@@ -52,7 +52,7 @@ export default function Header() {
               {link.label}
             </NavLink>
           ))}
-          <Link to="/contact" className="btn btn-ink !px-4 !py-2">
+          <Link to="/contact" className="btn btn-ink rounded-full !px-5 !py-2.5">
             Talk to us
           </Link>
         </nav>
@@ -95,7 +95,11 @@ export default function Header() {
                 {link.label}
               </NavLink>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn btn-ink btn-block-sm mt-3">
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="btn btn-ink btn-block-sm mt-3 rounded-full"
+            >
               Talk to us
             </Link>
           </div>
